@@ -62,42 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Obsługa formularza kontaktowego
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.querySelector(".contact-form");
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Pobierz dane z formularza
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            
-            // Walidacja podstawowa
-            if (!name || !email || !message) {
-                showNotification('Proszę wypełnić wszystkie pola formularza.', 'error');
-                return;
+        contactForm.addEventListener("submit", function(e) {
+            // Formspree obsługuje wysyłanie formularza, więc nie blokujemy domyślnego zachowania
+            // Możemy dodać walidację po stronie klienta, ale nie blokujemy wysyłania
+            const emailInput = this.querySelector("input[name=\"email\"]");
+            if (emailInput && !isValidEmail(emailInput.value)) {
+                e.preventDefault(); // Zablokuj wysyłanie, jeśli email jest nieprawidłowy
+                showNotification("Proszę podać prawidłowy adres email.", "error");
             }
-            
-            if (!isValidEmail(email)) {
-                showNotification('Proszę podać prawidłowy adres email.', 'error');
-                return;
-            }
-            
-            // Symulacja wysyłania formularza
-            const submitButton = this.querySelector('.submit-button');
-            const originalText = submitButton.textContent;
-            
-            submitButton.textContent = 'Wysyłanie...';
-            submitButton.disabled = true;
-            
-            // Symulacja opóźnienia wysyłania
-            setTimeout(function() {
-                showNotification('Dziękuję za wiadomość! Odpowiem najszybciej jak to możliwe.', 'success');
-                contactForm.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
+            // Formspree zajmie się resztą, w tym przekierowaniem lub wyświetleniem komunikatu
         });
     }
 
