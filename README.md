@@ -23,7 +23,7 @@ Strona została stworzona zgodnie z wymaganiami:
 ### Funkcjonalności:
 - ✅ Smooth scroll
 - ✅ Animacje fade-in przy przewijaniu
-- ✅ Interaktywny formularz kontaktowy
+- ✅ Interaktywny formularz kontaktowy (zintegrowany z Formspree)
 - ✅ Hover efekty na przyciskach i kartach
 - ✅ Animowane liczniki cen
 - ✅ Responsywny design
