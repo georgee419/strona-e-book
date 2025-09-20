@@ -484,3 +484,107 @@ html {
     scroll-behavior: smooth;
 }
 
+
+/* Style dla rozszerzonych informacji o e-bookach */
+.ebook-details {
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.ebook-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.stat-item {
+    background: linear-gradient(135deg, #f5f5dc, #e6e6dc);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2d5016;
+    border: 1px solid #deb887;
+}
+
+.ebook-benefits, .ebook-contents {
+    margin-bottom: 1.5rem;
+}
+
+.ebook-benefits h4, .ebook-contents h4 {
+    color: #2d5016;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.ebook-benefits ul, .ebook-contents ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ebook-benefits li, .ebook-contents li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.ebook-benefits li {
+    display: flex;
+    align-items: center;
+}
+
+.ebook-contents li {
+    padding-left: 1rem;
+    position: relative;
+}
+
+.ebook-contents li::before {
+    content: "•";
+    color: #8fbc8f;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsywność dla nowych elementów */
+@media (max-width: 768px) {
+    .ebook-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .ebook-details {
+        text-align: center;
+    }
+    
+    .ebook-benefits ul, .ebook-contents ul {
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .ebook-benefits h4, .ebook-contents h4 {
+        font-size: 1rem;
+    }
+    
+    .ebook-benefits li, .ebook-contents li {
+        font-size: 0.9rem;
+    }
+    
+    .stat-item {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
